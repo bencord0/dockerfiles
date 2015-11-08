@@ -24,21 +24,24 @@ This technique will be a common way of creating more advanced containers that
 require access to the portage tree, without rebuilding from source.
 
 ## rsync
-Description: A gentoo rsync server, hosting the gentoo-portage tree.
-Dockerfile: rsyncd/Dockerfile
-Build:
+ - Description: A gentoo rsync server, hosting the gentoo-portage tree.
+ - Dockerfile: rsyncd/Dockerfile
+ - Build:
+
 	$ docker build -t bencord0/rsyncd rsyncd
 
-Run:
+ - Run:
+
 	$ docker run --volumes-from portage -p 873:873 -d --name rsyncd \
 		bencord0/rsyncd
 
 Use this container as a portage rsync host suitable for /etc/portage/repos.conf
 
 ## nginx
-Description: A gentoo nginx base image
-Dockerfile: none
-Build:
+ - Description: A gentoo nginx base image
+ - Dockerfile: none
+ - Build:
+
 This container is not built using a dockerfile because it requires access to
 volumes, which are not available during the "docker build" command.
 
@@ -52,12 +55,14 @@ This image isn't very useful by itself, but once built, it can be used in
 Dockerfile FROM lines.
 
 ## binhost
-Description: Serves the portage tree (with distfiles and packages) over http
-Dockerfile: binhost/Dockerfile
-Build:
+ - Description: Serves the portage tree (with distfiles and packages) over http
+ - Dockerfile: binhost/Dockerfile
+ - Build:
+
 	$ docker build -t bencord0/binhost binhost
 
-Run:
+ - Run:
+
 	$ docker run --volumes-from portage -p 80:80 -d --name binhost \
 		bencord0/binhost
 
