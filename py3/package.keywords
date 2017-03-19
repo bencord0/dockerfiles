@@ -1,3 +1,11 @@
+app-eselect/eselect-python
 dev-lang/python
+dev-python/appdirs
+dev-python/certifi
+dev-python/packaging
 dev-python/pip
+dev-python/psycopg
+dev-python/pyparsing
+dev-python/setuptools
 dev-python/virtualenv
+sys-apps/portage

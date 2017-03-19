@@ -1,0 +1,2 @@
+dev-db/postgresql -ldap -pam -server
+dev-lang/python sqlite
